@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from todo_app import views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+    # homepage
+    path('', views.index, name="todo_app"),
+
+    path("del/<str:item_id>", views.remove, name="del")
 ]
